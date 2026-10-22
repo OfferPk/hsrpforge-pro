@@ -1,0 +1,398 @@
+/* ==========================================================================
+   HSRPForge Pro - Cyber Defense & Enterprise Campus NOC Stylesheet
+   ========================================================================== */
+
+:root {
+  --bg-primary: #050811;
+  --bg-secondary: #081021;
+  --bg-card: #0b152d;
+  --bg-input: #040917;
+  --border-color: #16264d;
+  --border-focus: #f59e0b;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --primary-amber: #f59e0b;
+  --primary-cyan: #06b6d4;
+  --primary-purple: #a855f7;
+  --primary-emerald: #10b981;
+  --primary-rose: #ef4444;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  line-height: 1.5;
+  min-height: 100vh;
+  padding: 1.5rem;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Header & Banner */
+header {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(6, 182, 212, 0.05));
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.25rem 1.75rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.brand-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.brand-badge {
+  background: linear-gradient(135deg, var(--primary-amber), var(--primary-rose));
+  color: #050811;
+  font-weight: 900;
+  font-size: 0.85rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 8px;
+  letter-spacing: 0.5px;
+}
+
+.brand-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  background: linear-gradient(to right, #f8fafc, #fbbf24);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.brand-subtitle {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.header-badges {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.badge {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.35rem 0.65rem;
+  border-radius: 6px;
+  border: 1px solid;
+}
+
+.badge-amber  { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border-color: #f59e0b; }
+.badge-cyan   { background: rgba(6, 182, 212, 0.15); color: #22d3ee; border-color: #06b6d4; }
+.badge-emerald{ background: rgba(16, 185, 129, 0.15); color: #34d399; border-color: #10b981; }
+.badge-purple { background: rgba(168, 85, 247, 0.15); color: #c084fc; border-color: #a855f7; }
+
+/* Preset Strip */
+.preset-bar {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.25rem;
+}
+
+.btn-preset {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.6rem 1.1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.btn-preset:hover, .btn-preset.active {
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--text-main);
+  border-color: var(--primary-amber);
+}
+
+/* Studio Layout Grid */
+.studio-grid {
+  display: grid;
+  grid-template-columns: 440px 1fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 1080px) {
+  .studio-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Cards */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(22, 38, 77, 0.6);
+  padding-bottom: 0.65rem;
+}
+
+.card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Forms & Inputs */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+}
+
+.form-full {
+  grid-column: span 2;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+input, select {
+  background: var(--bg-input);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  padding: 0.55rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.88rem;
+  font-family: inherit;
+  transition: border-color 0.2s ease;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--border-focus);
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.2);
+}
+
+/* Diagnostic Banners */
+.diag-banner {
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid;
+}
+
+.diag-critical {
+  background: rgba(239, 68, 68, 0.12);
+  border-color: var(--primary-rose);
+  color: #fca5a5;
+}
+
+.diag-protected {
+  background: rgba(16, 185, 129, 0.12);
+  border-color: var(--primary-emerald);
+  color: #a7f3d0;
+}
+
+.diag-healthy {
+  background: rgba(6, 182, 212, 0.12);
+  border-color: var(--primary-cyan);
+  color: #a5f3fc;
+}
+
+.diag-title {
+  font-weight: 800;
+  font-size: 0.95rem;
+  margin-bottom: 0.35rem;
+}
+
+.diag-desc {
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+
+/* Scorecard */
+.score-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.grade-circle {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 900;
+  border: 3px solid;
+  flex-shrink: 0;
+}
+
+.grade-aplus, .grade-a {
+  background: rgba(16, 185, 129, 0.15);
+  border-color: var(--primary-emerald);
+  color: var(--primary-emerald);
+}
+
+.grade-b, .grade-c {
+  background: rgba(245, 158, 11, 0.15);
+  border-color: var(--primary-amber);
+  color: var(--primary-amber);
+}
+
+.grade-f {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: var(--primary-rose);
+  color: var(--primary-rose);
+}
+
+.score-stats {
+  flex-grow: 1;
+}
+
+.score-bar-bg {
+  background: var(--bg-input);
+  height: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 0.4rem 0;
+}
+
+.score-bar-fill {
+  height: 100%;
+  transition: width 0.4s ease;
+}
+
+/* Findings List */
+.findings-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.finding-item {
+  background: var(--bg-input);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 0.65rem 0.85rem;
+  font-size: 0.82rem;
+}
+
+.finding-item.pass { border-left: 4px solid var(--primary-emerald); }
+.finding-item.warn { border-left: 4px solid var(--primary-amber); }
+.finding-item.fail { border-left: 4px solid var(--primary-rose); }
+
+/* Monospace Hex & Code */
+.code-box {
+  background: #02050f;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: #e2e8f0;
+  padding: 1rem;
+  overflow-x: auto;
+  white-space: pre;
+  line-height: 1.4;
+  position: relative;
+}
+
+/* Buttons */
+.btn {
+  background: var(--primary-amber);
+  color: #050811;
+  font-weight: 700;
+  font-size: 0.82rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: filter 0.2s ease;
+}
+
+.btn:hover {
+  filter: brightness(1.15);
+}
+
+.btn-secondary {
+  background: var(--bg-input);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+}
+
+.btn-secondary:hover {
+  border-color: var(--primary-amber);
+}
+
+/* Tabs */
+.tab-row {
+  display: flex;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.4rem;
+  overflow-x: auto;
+}
+
+.tab-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.tab-btn.active {
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--primary-amber);
+}
